@@ -1,4 +1,6 @@
+using BusinessLogic;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System.Text.RegularExpressions;
 
 namespace BusinessLogicTests
 {
@@ -12,8 +14,15 @@ namespace BusinessLogicTests
         [DataRow("428-52-1234")]
         public void IsValidSsn_ValidInput_ReturnTrue(string input)
         {
-            //TODO: Test the IsValidSSN method in the Validator class
-            Assert.Fail();
+            //Arrange
+            bool isValid;
+            bool expectedResult = true;
+
+            //Act
+            isValid = Validator.IsSsn(input);
+
+            //Assert
+            Assert.AreEqual(expectedResult, isValid);
         }
 
         [TestMethod]
@@ -23,8 +32,14 @@ namespace BusinessLogicTests
         [DataRow("TenLetters")]
         public void IsValidSsn_InvalidInput_ReturnsFalse(string input)
         {
-            //TODO: Test the IsValidSSN method in the Validator class
-            Assert.Fail();
+            bool isValid;
+            bool expectedResult = false;
+
+            //Act
+            isValid = Validator.IsSsn(input);
+
+            //Assert
+            Assert.AreEqual(expectedResult, isValid);
         }
 
         [TestMethod]
@@ -34,8 +49,15 @@ namespace BusinessLogicTests
         [DataRow(2000, 0, 50000)]
         public void IsWithinRange_NumInInclusiveRange_ReturnTrue(int test, int min, int max)
         {
-            //TODO: Test the IsWithinRange method in the Validator class
-            Assert.Fail();
+            //Arrange
+            bool isInRange;
+            bool expectedResult = true;
+
+            //Act
+            isInRange = Validator.IsWithinRange(test, min, max);
+
+            //Assert
+            Assert.AreEqual(expectedResult, isInRange);
         }
 
         [TestMethod]
@@ -44,8 +66,15 @@ namespace BusinessLogicTests
         [DataRow(10000, 0, 5000)]
         public void IsWithinRange_NumOutsideInclusiveRange_ReturnsFalse(int test, int min, int max)
         {
-            //TODO: Test the IsWithinRange method in the Validator class
-            Assert.Fail();
+            //Arrange
+            bool isInRange;
+            bool expectedResult = false;
+
+            //Act
+            isInRange = Validator.IsWithinRange(test, min, max);
+
+            //Assert
+            Assert.AreEqual(expectedResult, isInRange);
         }
     }
 }
