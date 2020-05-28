@@ -30,6 +30,7 @@ namespace BusinessLogic
                 {
                     throw new ArgumentNullException();
                 }
+                CourseName = value;
             }
         }
 
@@ -45,6 +46,7 @@ namespace BusinessLogic
                 {
                     throw new ArgumentException();
                 }
+                NumberOfCredits = value;
             }
         }
 
